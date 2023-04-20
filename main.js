@@ -42,7 +42,48 @@ function validateCred(arr) {
 }
 
 
+function findInvalidCards(cards) {
+  const invalidCards = [];
+  for (let i = 0; i < cards.length; i++) {
+    const card = cards[i];
+    if (!validateCred(card)) {
+      invalidCards.push(card);
+    }
+  }
+  return invalidCards;
+}
 
+function idInvalidCardCompanies(invalidCards) {
+  const companies = [];
+  for (let i = 0; i < invalidCards.length; i++) {
+    let firstDigit = invalidCards[i][0];
+    switch (firstDigit) {
+      case 3:
+        if (companies.indexOf('Amex') === -1) {
+          companies.push('Amex');
+        }
+        break;
+      case 4:
+        if (companies.indexOf('Visa') === -1) {
+          companies.push('Visa');
+        }
+        break;
+      case 5:
+        if (companies.indexOf('Mastercard') === -1) {
+          companies.push('Mastercard');
+        }
+        break;
+      case 6:
+        if (companies.indexOf('Discover') === -1) {
+          companies.push('Discover');
+        }
+        break;
+      default:
+        console.log('Company not found');
+    }
+  }
+  return companies;
+}
 
 
 
