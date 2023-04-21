@@ -111,7 +111,20 @@ console.log(idInvalidCardCompanies([invalid1])); // Should print['visa']
 console.log(idInvalidCardCompanies([invalid2])); // Should print ['mastercard']
 console.log(idInvalidCardCompanies(batch)); // Find out which companies have mailed out invalid cards
 
+/*
+This is from the
 
+BUILDING INTERACTIVE WEBSITES
+Challenge Project: Credit Card Checker
+
+https://www.codecademy.com/journeys/full-stack-engineer/paths/fscj-22-building-interactive-websites/tracks/fscp-22-javascript-syntax-part-ii-c8ddbace-1463-4797-ae12-503c7b0f9552/modules/wdcp-22-credit-card-checker-b1138dff-8fa2-426b-b943-74a5c58d2455/projects/credit-card-checker
+
+
+in laptop folder
+
+/c/Users/glads/Downloads/credit-card-checker-starter/credit-card-checker-starter
+
+*/
 
 
 
