@@ -24,33 +24,55 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 
 // Add your functions below:
-function validateCred(arr) {
+function validateCred(arr) { //This is the start of the 'validateCred' function, which takes an array 'arr'as input
+
   let sum = 0;
   let double = false;
-  for (let i = arr.length - 1; i >= 0; i--) {
+//This creates two variables sum and double and initializes them to 0 and false, respectively.
+  for (let i = arr.length - 1; i >= 0; i--) { //This starts a for loop that iterates over the elements of arr in reverse order, starting from the last element.
+
+
     let num = arr[i];
-    if (double) {
+//This creates a new variable num and assigns it the value of the current element in the loop.
+
+
+   if (double) {
       num *= 2;
       if (num > 9) {
         num -= 9;
       }
     }
+//This if block checks whether double is true. If it is, num is doubled and, if the result is greater than 9, 9 is subtracted from it. This is a common operation in credit card validation algorithms.
+
     sum += num;
     double = !double;
   }
+//This adds num to sum and toggles the value of double to alternate between doubling and not doubling the next number in the array.
+
   return sum % 10 === 0;
+//This ends the for loop and returns true if sum is a multiple of 10 (i.e., the credit card number is valid) and false otherwise.
+
+
 }
 
 
-function findInvalidCards(cards) {
+function findInvalidCards(cards) { //This starts the findInvalidCards function, which takes an array cards as input.
+
+
   const invalidCards = [];
+//This creates an empty array invalidCards.
+
   for (let i = 0; i < cards.length; i++) {
     const card = cards[i];
     if (!validateCred(card)) {
       invalidCards.push(card);
     }
   }
+// This loops over the elements of cards, assigning the current element to the variable card. It then calls the validateCred function on card and, if the result is false, adds card to the invalidCards array.
+
   return invalidCards;
+//This ends the for loop and returns the invalidCards array containing all invalid credit card numbers.
+
 }
 
 function idInvalidCardCompanies(invalidCards) {
@@ -84,6 +106,10 @@ function idInvalidCardCompanies(invalidCards) {
   }
   return companies;
 }
+
+console.log(idInvalidCardCompanies([invalid1])); // Should print['visa']
+console.log(idInvalidCardCompanies([invalid2])); // Should print ['mastercard']
+console.log(idInvalidCardCompanies(batch)); // Find out which companies have mailed out invalid cards
 
 
 
